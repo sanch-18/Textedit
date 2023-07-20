@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Textediter</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        body {
+            padding: 5vh 2vw;
+            background-color: antiquewhite;
+            font-size: 1.2rem;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            border-radius: 2px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            color: aliceblue;
+            background-color: black;
+            text-align: center;
+        }
+
+        textarea {
+            font-size: 1.2rem;
+            padding: 2vh 2vw;
+            margin: 10px 0px;
+            width: 91vw;
+            display: flex;
+            align-content: center;
+            border-width: 1.5px;
+            border-color: black;
+            border-radius: 5px;
+        }
+
+        #butt {
+            display: flex;
+            justify-content: center;
+            padding: 5vh 5vw;
+        }
+
+        #butt button {
+            padding: 2vh 2vw;
+            font-size: 1.2rem;
+            border-radius: 10px;
+            background-color: aliceblue;
+        }
+
+        #butt button:hover {
+            background-color: rgb(65, 65, 55);
+        }
+
+        .removepunc {
+            margin: 10px 0px;
+            font-size: 1.2rem;
+            display: flex;
+            text-justify: distribute;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>WELCOME HERE! PLEASE TYPE SOMETHING</h2>
+    <form id="textcontainer" action="/analyse" method="post"> {% csrf_token %}
+        <textarea name="text" id="text" cols="30" rows="10"></textarea>
+        <div class="removepunc">
+            <input type="checkbox" name="removepunc">Remove Punctuations<br>
+        </div>
+        <div class="removepunc">
+            <input type="checkbox" name="fullcap">Upper Case<br>
+        </div>
+        <div class="removepunc">
+            <input type="checkbox" name="newlineremover">New Line Remover<br>
+        </div>
+        <div class="removepunc">
+            <input type="checkbox" name="erasespace">Extra Spaces Remover<br>
+        </div>
+        <div class="removepunc">
+            <input type="checkbox" name="charactercount">Count Characters<br>
+        </div>
+        <div class="removepunc">
+            <input onclick="removetext()" id="check" type="checkbox" name="remove">Remove a word
+        </div>
+        <span id="remove" style="display:none;  margin: 0vh 2vw;font-size: 1.2rem;">
+            Enter the word you want to remove : 
+            <input  type="text"  name="remove_text"><br>
+        </span>
+        <div class="removepunc">
+            <input onclick="removetext2()" id="check2" type="checkbox" name="remove2">Replace a word
+        </div>
+        <span id="remove2" style="display:none;  margin: 0vh 2vw;font-size: 1.2rem;">
+            Enter the word you want to replace 
+            <input  type="text"  name="remove_text2"> with 
+            <input  type="text"  name="remove_text3"><br>
+        </span>
+        <div id="butt">
+            <button type="submit">Submit</button>
+        </div>
+        <script>
+
+            function removetext() {
+                let para = document.getElementById('remove');
+                let checkBox = document.getElementById('check');
+                if (checkBox.checked == true) 
+                {
+                    para.style.display = 'block';
+                } 
+                else 
+                {
+                    para.style.display = "none";
+                }
+            }
+            function removetext2() {
+                let para = document.getElementById('remove2');
+                let checkBox = document.getElementById('check2');
+                if (checkBox.checked == true) 
+                {
+                    para.style.display = 'block';
+                } 
+                else 
+                {
+                    para.style.display = "none";
+                }
+            }
+        </script>
+    </form>
+</body>
+
+</html>

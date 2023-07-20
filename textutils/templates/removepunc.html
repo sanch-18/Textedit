@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edited Text</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        body{
+            padding: 2vh 2vw;
+            background-color: antiquewhite;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        h2{
+            background-color: black;
+            color: aliceblue;
+            text-align: center;
+            border-radius: 5px;
+            padding: 2vh 2vw;
+        }
+        .edit{
+            background-color: azure;
+            margin: 10px 0px;
+            padding: 2vh 2vw;
+            font-size: 1.2rem;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h2>THE EDITED TEXT IS</h2>
+    <p >
+        <pre class="edit">{{analysed_text}}</pre>
+    </p>
+    <div class="edit">
+        Character Count : {{character_count}}
+    </div>
+</body>
+</html>
